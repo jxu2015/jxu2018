@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="http://demos.telerik.com/kendo-ui/mobile-button/index">
+        <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
+        <title></title>
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-material.min.css" />
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.material.min.css" />
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.material.min.css" />
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.mobile.all.min.css" />
+
+        <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+        <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    </head>
+    <body>
+        <div data-role="view" id="button-home" data-title="Sports Academy" data-init="listViewInit" data-persist="true" >
+            <div class="home head">&nbsp;</div>
+            <a class="button selected-button" data-role="button">Home</a>
+            <a class="button" data-role="button" href="#facility">Facility</a>
+            <a class="button" data-role="button" href="#ContactUS">Contac Us</a>
+            <a class="button" data-role="button" href="#foo">Foo</a>
+            <a class="button" data-role="button" href="Contact.htm">About</a>
+
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <p>Our Sports Academy provides a venue for outdoor and indoor sports and activities for children and adults of all ages.</p>
+                    <p>
+                        <br/> <br/>
+                        <input type="checkbox" data-role="switch" data-off-label="No" data-on-label="Yes" />.
+                    </p>
+
+                    <div style="display: flex; flex-direction:row">
+                        <div style="flex: 1; background: red">asdfasdf</div>
+                        <div style="flex: 3; background: blue">asdf</div>
+                        <div style="flex: 2; background: green">asdf</div>
+                    </div>
+                </li>
+                <li>
+                    <div data-role="scroller" class="scroller-content">
+                        <ul id="flat-listview"></ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div data-role="view" id="facility" data-title="Facility" data-persist="true">
+            <div class="facility head">&nbsp;</div>
+            <a class="button" data-role="button" href="#:back">Home</a>
+            <a class="button selected-button" data-role="button" href="#facility">Facility</a>
+            <a class="button" data-role="button" href="#ContactUS">Contac Us</a>
+            <a class="button" data-role="button" href="#foo">Foo</a>
+            <a class="button" data-role="button" href="Contact.htm">About</a>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <p>The facility has two indoor basketball fields, olympic size swimming pool, outdoor soccer field, baseball field, golf club and more.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div data-role="view" id="ContactUS" data-title="Contact Us" data-persist="true">
+            <div class="ContactUS head">&nbsp;</div>
+            <a class="button" data-role="button" href="#:back">Home</a>
+            <a class="button" data-role="button" href="#facility">Facility</a>
+            <a class="button selected-button" data-role="button" href="#ContactUS">Contac Us</a>
+            <a class="button" data-role="button" href="#foo">Foo</a>
+            <a class="button" data-role="button" href="Contact.htm">About</a>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <p>The Contact US has two indoor basketball fields, olympic size swimming pool, outdoor soccer field, baseball field, golf club and more.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="foo" data-role="view" data-title="foo" data-persist="true" data-stretch="false">
+
+            <div class="foo head">&nbsp;</div>
+            <a class="button" data-role="button" href="#:back">Home</a>
+            <a class="button" data-role="button" href="#facility">Facility</a>
+            <a class="button " data-role="button" href="#ContactUS">Contac Us</a>
+            <a class="button selected-button" data-role="button" href="#foo">Foo</a>
+            <a class="button" data-role="button" href="contact.htm">About</a>
+            <br/>
+            <input type="checkbox" data-role="switch" data-checked="false" />
+            <input type="checkbox" data-role="switch" data-checked="true" />
+
+            <div style="display: flex; flex-direction:column">
+                <div style="flex: 1; background: red"></div>
+                <div style="flex: 3; background: blue"></div>
+                <div style="flex: 2; background: green"></div>
+            </div>
+
+            <a class="button" data-role="button" id="home-link" href="#facility">Test</a>
+
+            <footer data-role="footer">
+                <div data-role="tabstrip">
+                    <a href="#button-home">Home</a>
+                    <a href="contact.htm">About</a>
+                    <a href="#ContactUS">ContactUS</a>
+                </div>
+            </footer>
+
+        </div>
+
+        <style>
+            
+            .container
+            {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                display: -moz-box;
+                -moz-box-orient: vertical;
+            }
+            
+            #scroller-view .scroller-content
+            {
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+            }
+            .button
+            {
+                margin-left: .5em;
+                text-align: center;
+            }
+            .km-root .selected-button.km-button,
+            .km-root .km-wp-light .selected-button.km-button
+            {
+                color: #fff;
+                background-color: #f60;
+            }
+            /* solid filled buttons in iOS7 should override the border-color */
+            .km-ios7 .selected-button
+            {
+                border-color: transparent;
+            }
+            .button:first-of-type
+            {
+                margin-left: 1em;
+            }
+            .home
+            {
+                background: url(../content/mobile/shared/sports-home.jpg) no-repeat center center;
+            }
+            .facility
+            {
+                background: url(../content/mobile/shared/sports-facility.jpg) no-repeat center center;
+            }
+            
+            .sports
+            {
+                background: url(../content/mobile/shared/sports.jpg) no-repeat center center;
+            }
+            
+            .ContactUS
+            {
+                background: url(../content/mobile/shared/sports-facility.jpg) no-repeat center center;
+            }
+            
+            .foo
+            {
+                background: url(../content/mobile/shared/sports-facility.jpg) no-repeat center center;
+            } 
+            
+            #button-home .head,
+            #ContactUS .head,
+            #facility .head,
+            #foo .head,
+            #sports .head
+            {
+                display: block;
+                margin: 1em;
+                height: 120px;
+                -webkit-background-size: 100% auto;
+                background-size: 100% auto;
+            }
+            .km-ios .head,
+            .km-blackberry .head
+            {
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+            }
+        </style>
+            
+        <script>
+            $("#home-link").kendoMobileButton();
+        </script>
+            
+        <script>
+            var app = new kendo.mobile.Application(document.body, {
+                                                       transition:'slide'
+                                                   });
+            
+            var data = [ "Sashimi salad", "Chirashi sushi", "Seaweed salad", "Edamame", "Miso soup", "Maguro", "Shake", "Shiromi", "Tekka maki", "Hosomaki Mix", "California rolls", "Seattle rolls", "Spicy Tuna rolls", "Ebi rolls", "Chicken Teriyaki", "Salmon Teriyaki", "Gohan", "Tori Katsu", "Yaki Udon", "Sashimi salad", "Chirashi sushi", "Seaweed salad", "Edamame", "Miso soup", "Maguro", "Shake", "Shiromi", "Tekka maki", "Hosomaki Mix", "California rolls", "Seattle rolls", "Spicy Tuna rolls", "Ebi rolls", "Chicken Teriyaki", "Salmon Teriyaki", "Gohan", "Tori Katsu", "Yaki Udon" ];
+                
+            function listViewInit() {
+                $("#flat-listview").kendoMobileListView({ dataSource: data });
+            }
+                
+            $("#about-button").click(function() {
+                alert("adsfa");
+            });
+        </script>
+    </body>
+</html>
